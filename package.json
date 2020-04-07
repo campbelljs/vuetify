@@ -1,0 +1,22 @@
+{
+  "name": "@campbell/vuetify",
+  "version": "0.0.1",
+  "description": "easily add vuetify to campbell",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/campbelljs/vuetify.git"
+  },
+  "author": "Mathis TLD",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/campbelljs/vuetify/issues"
+  },
+  "homepage": "https://github.com/campbelljs/vuetify#readme",
+  "dependencies": {
+    "@nuxtjs/vuetify": "^1.11.0"
+  }
+}
