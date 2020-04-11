@@ -1,3 +1,5 @@
+const _merge = require("lodash");
+
 module.exports = {
   install() {
     let vuetifyOpts = {};
@@ -7,7 +9,8 @@ module.exports = {
       else cfg.buildModules.push("@nuxtjs/vuetify");
 
       this.$emit("client.nuxt.vuetify.configure", vuetifyOpts);
-      cfg.vuetify = vuetifyOpts;
+      if (!cfg.vuetify) cfg.vuetify = {};
+      _merge(cfg.vuetify, vuetifyOpts);
     }
 
     this.$on("client.nuxt.configure", configureNuxt);
