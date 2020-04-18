@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/campbelljs/vuetify#readme",
   "dependencies": {
-    "@nuxtjs/vuetify": "^1.11.0"
+    "@nuxtjs/vuetify": "^1.11.0",
+    "tapable": "^1.1.3"
   }
 }

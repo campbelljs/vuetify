@@ -1,18 +1,28 @@
-const _merge = require("lodash");
+const { SyncHook } = require("tapable");
 
 module.exports = {
+  name: "@campbell/vuetify",
   install() {
-    let vuetifyOpts = {};
+    this.registerHook(
+      "ui:configure-nuxt:configure-vuetify",
+      new SyncHook(["nuxtVuetifyOpts"])
+    );
+
+    let nuxtVuetifyOpts = {};
     function configureNuxt(cfg) {
       // add @nuxtjs/vuetify
       if (!cfg.buildModules) cfg.buildModules = ["@nuxtjs/vuetify"];
       else cfg.buildModules.push("@nuxtjs/vuetify");
 
-      this.$emit("client.nuxt.vuetify.configure", vuetifyOpts);
+      this.hooks["ui:configure-nuxt:configure-vuetify"].call(nuxtVuetifyOpts);
+
       if (!cfg.vuetify) cfg.vuetify = {};
-      _merge(cfg.vuetify, vuetifyOpts);
+      Object.assign(cfg.vuetify, nuxtVuetifyOpts);
     }
 
-    this.$on("client.nuxt.configure", configureNuxt);
+    this.hooks["ui:configure-nuxt"].tap(
+      "CampbellVuetify",
+      configureNuxt.bind(this)
+    );
   }
 };
