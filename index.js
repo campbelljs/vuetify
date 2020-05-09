@@ -11,8 +11,8 @@ module.exports = {
     let nuxtVuetifyOpts = {};
     function configureNuxt(cfg) {
       // add @nuxtjs/vuetify
-      if (!cfg.buildModules) cfg.buildModules = ["@nuxtjs/vuetify"];
-      else cfg.buildModules.push("@nuxtjs/vuetify");
+      if (!cfg.buildModules) cfg.buildModules = [];
+      cfg.buildModules.push("@nuxtjs/vuetify");
 
       this.hooks["ui:configure-nuxt:configure-vuetify"].call(nuxtVuetifyOpts);
 
