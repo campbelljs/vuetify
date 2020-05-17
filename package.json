@@ -1,6 +1,6 @@
 {
   "name": "@campbell/vuetify",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "easily add vuetify to campbell",
   "main": "index.js",
   "scripts": {
