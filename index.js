@@ -2,13 +2,12 @@ const { SyncHook } = require("tapable");
 
 module.exports = {
   name: "@campbell/vuetify",
-  install() {
+  install(nuxtVuetifyOpts = {}) {
     this.registerHook(
       "ui:configure-nuxt:configure-vuetify",
       new SyncHook(["nuxtVuetifyOpts"])
     );
 
-    let nuxtVuetifyOpts = {};
     function configureNuxt(cfg) {
       // add @nuxtjs/vuetify
       if (!cfg.buildModules) cfg.buildModules = [];
@@ -24,5 +23,5 @@ module.exports = {
       "CampbellVuetify",
       configureNuxt.bind(this)
     );
-  }
+  },
 };
