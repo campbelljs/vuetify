@@ -3,6 +3,9 @@ const { SyncHook } = require("tapable");
 module.exports = {
   name: "@campbell/vuetify",
   install(nuxtVuetifyOpts = {}) {
+    // do nothing if no ui
+    if (!this.ui) return;
+
     this.registerHook(
       "ui:configure-nuxt:configure-vuetify",
       new SyncHook(["nuxtVuetifyOpts"])
